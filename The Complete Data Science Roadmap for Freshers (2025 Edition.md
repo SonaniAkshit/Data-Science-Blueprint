@@ -1,4 +1,4 @@
-# 🚀 The Complete Data Science Roadmap for Freshers (2025 Edition) 🚀
+# 🚀 The Complete Data Science Roadmap for Freshers (2025 Edition)
 
 ![Data Science Journey](https://img.shields.io/badge/Status-Job--Ready-brightgreen)
 ![Python](https://img.shields.io/badge/Language-Python-blue)
