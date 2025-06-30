@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Complete Data Science Roadmap for Freshers (2025 Edition)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .energetic-bg-dark { background-color: #008DCC; }
+        .energetic-bg-light { background-color: #e6f6ff; }
+        .energetic-text-accent1 { color: #F15412; }
+        .energetic-text-accent2 { color: #00A6FB; }
+        .energetic-border-accent1 { border-color: #F15412; }
+        .energetic-accent1 { background-color: #F15412; }
+        .energetic-accent2 { background-color: #32E0C4; }
+        .energetic-accent3 { background-color: #F9D923; }
+        .energetic-accent4 { background-color: #00A6FB; }
+        .energetic-chart-color1 { background-color: #00A6FB; }
+        .energetic-chart-color2 { background-color: #F15412; }
+        .energetic-chart-color3 { background-color: #32E0C4; }
+        .energetic-chart-color4 { background-color: #F9D923; }
+        .energetic-chart-color5 { background-color: #008DCC; }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+                max-height: 400px;
+            }
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #32E0C4;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 6px;
+        }
+
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-container.left {
+            left: 0;
+        }
+
+        .timeline-container.right {
+            left: 50%;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background-color: white;
+            border: 4px solid #F15412;
+            top: 22px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-container.right::after {
+            left: -13px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            .timeline-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            .timeline-container.left, .timeline-container.right {
+                left: 0%;
+            }
+            .timeline-container.left::after, .timeline-container.right::after {
+                left: 18px;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="energetic-bg-dark text-white p-8 text-center rounded-b-3xl shadow-lg">
+        <h1 class="text-4xl md:text-5xl font-black mb-2">The Complete Data Science Roadmap for Freshers (2025 Edition)</h1>
+        <p class="text-lg md:text-xl max-w-3xl mx-auto">Your ultimate guide to becoming a **Job-Ready Data Scientist** as a fresher, focusing on practical skills, project building, and deployment for success in the industry.</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <section id="overview" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">Your Path to Job Readiness</h2>
+            <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-10">This roadmap is designed with current industry demands in mind, emphasizing practical application and a balanced daily commitment to mastering data science.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-2xl font-bold mb-4 text-center">Daily Study Commitment</h3>
+                    <p class="text-center text-gray-600 mb-4">Consistency is key. Allocate 4 hours daily, splitting your time between hands-on tool skills and critical core competencies for holistic growth.</p>
+                    <div class="chart-container">
+                        <canvas id="studySplitChart"></canvas>
+                    </div>
+                </div>
+                <div class="text-center md:text-left">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                             <div class="text-5xl font-black energetic-text-accent1">6</div>
+                             <div class="text-lg font-semibold mt-2">Months Journey</div>
+                        </div>
+                         <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                             <div class="text-5xl font-black energetic-text-accent2">4</div>
+                             <div class="text-lg font-semibold mt-2">Hours / Day</div>
+                        </div>
+                    </div>
+                     <p class="mt-6 text-lg text-gray-700 bg-energetic-bg-light p-4 rounded-lg border-l-4 energetic-border-accent1">This structured approach builds a strong foundation, tackles complex topics, and ensures you emerge with a portfolio of real-world projects, ready to impress employers.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="job-ready-features" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">How This Roadmap Makes You Job-Ready</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+                    <span class="text-5xl mb-4 energetic-text-accent1">✅</span>
+                    <h3 class="text-xl font-bold mb-2">Core Skills Covered</h3>
+                    <p class="text-gray-600">Python, SQL, ML, DL, Visualization, Deployment, and more are thoroughly covered.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+                    <span class="text-5xl mb-4 energetic-text-accent2">🛠️</span>
+                    <h3 class="text-xl font-bold mb-2">End-to-End Projects</h3>
+                    <p class="text-gray-600">Gain practical experience from data collection to model deployment on real-world problems.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+                    <span class="text-5xl mb-4 energetic-text-accent3">🔗</span>
+                    <h3 class="text-xl font-bold mb-2">Modern Tools</h3>
+                    <p class="text-gray-600">Work with Git, Jupyter, Flask/Streamlit, Scikit-learn, TensorFlow/Keras, Docker, and Cloud basics.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+                    <span class="text-5xl mb-4 energetic-text-accent4">🧠</span>
+                    <h3 class="text-xl font-bold mb-2">Soft Skills</h3>
+                    <p class="text-gray-600">Develop communication skills to articulate insights and present your work effectively.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+                    <span class="text-5xl mb-4 energetic-text-accent1">💼</span>
+                    <h3 class="text-xl font-bold mb-2">Portfolio Ready</h3>
+                    <p class="text-gray-600">Build a strong GitHub portfolio with deployed web applications that impress recruiters.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+                    <span class="text-5xl mb-4 energetic-text-accent2">💰</span>
+                    <h3 class="text-xl font-bold mb-2">Competitive Salary</h3>
+                    <p class="text-gray-600">Equips you for competitive fresher salaries in India and potentially higher global roles.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="extra-recommendations" class="mb-16 bg-energetic-bg-light rounded-lg shadow-md p-6 md:p-8">
+            <h2 class="text-3xl font-bold text-center mb-8">💡 Extra Recommendations for High-Salary Readiness</h2>
+            <p class="text-center text-lg text-gray-700 max-w-3xl mx-auto mb-10">Beyond the core roadmap, these skills will significantly boost your profile and earning potential, making you a more versatile and in-demand data professional.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="text-xl font-bold energetic-text-accent1 mb-2">Git & GitHub 🤝</h4>
+                    <p class="text-gray-700">Code versioning, collaboration, and your public portfolio – essential for any developer.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="text-xl font-bold energetic-text-accent2 mb-2">Power BI/Tableau 📊</h4>
+                    <p class="text-gray-700">Business intelligence, dashboarding, and executive-level reporting skills are highly valued.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="text-xl font-bold energetic-text-accent3 mb-2">Kaggle Competitions 🏆</h4>
+                    <p class="text-gray-700">Solve real-world problems, benchmark your skills, and learn from a global community.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="text-xl font-bold energetic-text-accent4 mb-2">Docker & Kubernetes 🐳</h4>
+                    <p class="text-gray-700">Containerization ensures consistent, scalable production deployments for your models.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="text-xl font-bold energetic-text-accent1 mb-2">Cloud (AWS/Azure/GCP) ☁️</h4>
+                    <p class="text-gray-700">Learn to deploy models at scale, handle big data, and perform MLOps in cloud environments.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h4 class="text-xl font-bold energetic-text-accent2 mb-2">System Design Basics 🏗️</h4>
+                    <p class="text-gray-700">Understand how to structure ML projects and design scalable architectures.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4 md:col-span-2 mx-auto max-w-2xl">
+                    <h4 class="text-xl font-bold energetic-text-accent3 mb-2">English Communication 🗣️</h4>
+                    <p class="text-gray-700">Crucial for interviews, effective documentation, stakeholder communication, and securing remote roles.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="roadmap-timeline" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-10">🗺️ The Complete Data Science Roadmap (2025 Edition)</h2>
+            <div class="timeline">
+                <div class="timeline-container left">
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold energetic-text-accent2 mb-2">Phase 0 & 1: Foundations & Core Programming (Weeks 1-6)</h3>
+                        <p class="text-gray-700 mb-3">Begin with the absolute essentials: understanding data science, setting up your development environment, and mastering Python for data. You'll then dive into critical libraries for numerical operations and data manipulation.</p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                            <li>Introduction to Data Science & Lifecycle</li>
+                            <li>Environment Setup: Anaconda, VS Code, Git & GitHub</li>
+                            <li>Python Fundamentals: Syntax, Data Types, Control Flow, Functions, OOP basics, File I/O</li>
+                            <li>NumPy: `ndarray`, operations, linear algebra</li>
+                            <li>Pandas: `DataFrame`, Data Loading, Cleaning (missing values, duplicates), Transformation (filtering, grouping, merging)</li>
+                            <li>**Mini-Project:** "Hello World" Git Repo, "E-commerce Sales Data Cleaning & Transformation"</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-container right">
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold energetic-text-accent2 mb-2">Phase 2: Data Acquisition & Insights (Weeks 7-10)</h3>
+                        <p class="text-gray-700 mb-3">This phase focuses on acquiring data from various sources and transforming it into meaningful visualizations. SQL becomes a critical skill here for database interaction, complemented by web scraping for external data.</p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                            <li>SQL for Data Science: Database Concepts, Basic & Aggregate Queries, JOINs, Subqueries, CTEs</li>
+                            <li>Connecting Python to SQL databases</li>
+                            <li>Data Visualization: Matplotlib, Seaborn (line, scatter, bar, histogram, box plots, heatmaps)</li>
+                            <li>Storytelling with Data: Chart choice, labeling, insights</li>
+                            <li>Web Scraping Basics: `requests`, `BeautifulSoup`</li>
+                            <li>**Real-Time Projects:** "COVID-19 Trends Interactive Dashboard", "Job Posting Scraper"</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-container left">
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold energetic-text-accent2 mb-2">Phase 3: Statistical Foundations & Machine Learning (Weeks 11-18)</h3>
+                        <p class="text-gray-700 mb-3">Build the statistical understanding necessary for robust model building. This is where you dive deep into Machine Learning, covering core algorithms, model evaluation, and practical implementation with Scikit-learn.</p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                            <li>Statistics & Probability: Descriptive & Inferential Stats, Distributions, Hypothesis Testing</li>
+                            <li>Machine Learning Fundamentals: Supervised/Unsupervised, Bias-Variance, Overfitting, Evaluation Metrics (MSE, RMSE, MAE, Accuracy, Precision, Recall, F1, ROC-AUC)</li>
+                            <li>Scikit-learn: Preprocessing (scaling, encoding), Core Algorithms (Linear/Logistic Regression, KNN, Decision Trees, Ensemble Methods - Random Forest, XGBoost), K-Means</li>
+                            <li>Pipelines, Hyperparameter Tuning (`GridSearchCV`)</li>
+                            <li>**Real-Time Project:** "Customer Churn Prediction" (end-to-end ML workflow)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-container right">
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold energetic-text-accent2 mb-2">Phase 4: Deep Learning & Deployment (Weeks 19-25)</h3>
+                        <p class="text-gray-700 mb-3">Explore the basics of Deep Learning and, crucially, learn how to take your models from theory to reality by deploying them as interactive web applications. Get a taste of modern Generative AI with LLMs.</p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                            <li>Deep Learning Basics: Neural Networks, Activation Functions, Loss Functions, Optimizers</li>
+                            <li>TensorFlow/Keras or PyTorch: Build simple ANNs</li>
+                            <li>Web Deployment: Flask (routes, templates, model integration) or Streamlit (rapid app prototyping)</li>
+                            <li>Introduction to LLMs & Generative AI: Transformers (conceptual), Prompt Engineering, Hugging Face `pipelines`</li>
+                            <li>**Real-Time Projects:** "Diabetic Patient Readmission Predictor Web App", "Simple LLM-Powered Chatbot/Text Summarizer"</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-container left">
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold energetic-text-accent2 mb-2">Phase 5: Cloud, MLOps Basics & Portfolio Mastery (Ongoing)</h3>
+                        <p class="text-gray-700 mb-3">The final phase transitions from learning to applying and scaling. Understand containerization for consistent deployments, get an overview of cloud platforms for enterprise-level solutions, and master the art of showcasing your work.</p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
+                            <li>Docker: Containers, `Dockerfile`, building/running images, containerizing apps</li>
+                            <li>Cloud Platform Basics (AWS/Azure/GCP): IaaS, PaaS, SaaS, key services (Storage, Compute, ML Services)</li>
+                            <li>MLOps Fundamentals: Model/Data Versioning, Monitoring, CI/CD (conceptual)</li>
+                            <li>Soft Skills & Interview Prep: Communication, Problem-Solving, Business Acumen, Resume/LinkedIn Optimization, Mock Interviews, Networking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="time-allocation" class="mb-16 bg-white rounded-lg shadow-md p-6 md:p-8">
+             <h2 class="text-3xl font-bold text-center mb-4">Time Allocation Per Skill Block</h2>
+             <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-8">This bar chart shows the average weekly allocation across the major skill blocks within the 24-week roadmap. It highlights the progressive depth, from foundational programming to advanced deployment concepts.</p>
+            <div class="w-full max-w-4xl mx-auto h-[400px] md:h-[500px]">
+                <canvas id="timeAllocationChart"></canvas>
+            </div>
+        </section>
+
+        <section id="next-steps" class="mb-16">
+             <h2 class="text-3xl font-bold text-center mb-8">✅ Next Steps: Build, Showcase, Apply!</h2>
+             <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-10">Your journey doesn't end with learning; it's about applying that knowledge. These actionable steps will pave your way from a learner to a successful data scientist.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+                    <span class="text-5xl mb-4 energetic-text-accent1">🏗️</span>
+                    <h3 class="text-xl font-bold mb-2">Build the Projects</h3>
+                    <p class="text-gray-600">The most crucial step. Implement everything yourself; active building reinforces learning.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+                    <span class="text-5xl mb-4 energetic-text-accent2">📝</span>
+                    <h3 class="text-xl font-bold mb-2">Document on GitHub</h3>
+                    <p class="text-gray-600">For each project, create a detailed README explaining the problem, methodology, findings, and live app links.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+                    <span class="text-5xl mb-4 energetic-text-accent3">🌐</span>
+                    <h3 class="text-xl font-bold mb-2">Personal Portfolio</h3>
+                    <p class="text-gray-600">Consider a simple personal website to elegantly showcase your best projects.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+                    <span class="text-5xl mb-4 energetic-text-accent4">🤝</span>
+                    <h3 class="text-xl font-bold mb-2">Network Actively</h3>
+                    <p class="text-gray-600">Connect on LinkedIn, attend industry events, and participate in online communities.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center md:col-span-full mx-auto max-w-xl">
+                    <span class="text-5xl mb-4 energetic-text-accent1">🚀</span>
+                    <h3 class="text-xl font-bold mb-2">Apply Confidently</h3>
+                    <p class="text-gray-600">With a strong portfolio and clear understanding, you are ready to ace those interviews!</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center p-6 energetic-bg-dark text-white rounded-t-3xl">
+        <p>Your journey into data science starts now. Stay curious, keep building! ✨</p>
+    </footer>
+
+    <script>
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+
+        const wrapLabel = (label, maxWidth) => {
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).trim().length > maxWidth && currentLine.length > 0) {
+                    lines.push(currentLine);
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            });
+            lines.push(currentLine);
+            return lines;
+        }
+
+        const studySplitCtx = document.getElementById('studySplitChart').getContext('2d');
+        new Chart(studySplitCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Tool Skills (3 hrs/day)', 'Core Skills (1 hr/day)'],
+                datasets: [{
+                    label: 'Daily Study Split',
+                    data: [75, 25],
+                    backgroundColor: ['#00A6FB', '#F15412'],
+                    borderColor: ['#FFFFFF'],
+                    borderWidth: 4,
+                    hoverOffset: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                           font: {
+                                size: 14,
+                                family: "'Inter', sans-serif"
+                           }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                },
+                cutout: '60%'
+            }
+        });
+
+        const timeAllocationCtx = document.getElementById('timeAllocationChart').getContext('2d');
+        new Chart(timeAllocationCtx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    wrapLabel('Foundations & Core Programming', 16), 
+                    wrapLabel('Data Acquisition & Insights', 16), 
+                    wrapLabel('Statistical Foundations & ML', 16), 
+                    wrapLabel('Deep Learning & Deployment', 16), 
+                    wrapLabel('Cloud, MLOps & Portfolio Mastery', 16)
+                ],
+                datasets: [{
+                    label: 'Estimated Weeks Allocated',
+                    data: [6, 4, 8, 7, 3], 
+                    backgroundColor: ['#00A6FB', '#F15412', '#32E0C4', '#F9D923', '#008DCC'],
+                    borderRadius: 5,
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: {
+                            color: '#e0e0e0',
+                            borderDash: [5, 5]
+                        },
+                        title: {
+                            display: true,
+                            text: 'Number of Weeks',
+                            font: {
+                                size: 14,
+                                weight: '600'
+                            }
+                        }
+                    },
+                    y: {
+                         grid: {
+                            display: false
+                        },
+                         ticks: {
+                            font: {
+                                size: 14
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+    </script>
+
+</body>
+</html>
