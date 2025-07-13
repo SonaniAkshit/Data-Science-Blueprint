@@ -1,7 +1,3 @@
-Great! Here's a **full roadmap** to build your **University Chatbot**, from beginner to deployment. I’ve broken it into clear stages — from small demo to full-scale intelligent chatbot with login, tracking, and more.
-
----
-
 ## 🎯 **🎓 University Chatbot – Full Roadmap**
 
 ---
@@ -170,7 +166,3 @@ questions = {
 | 6     | Real university data + admin panel    |
 | 7     | Extra features: voice, translation    |
 | 8     | Hosting and deployment                |
-
----
-
-Would you like this as a **PDF roadmap with checkboxes** or a **Notion template**? I can generate that for your project team (you and Falguni)!
